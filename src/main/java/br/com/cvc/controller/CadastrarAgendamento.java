@@ -14,7 +14,7 @@ import br.com.cvc.model.Agendamento;
 @Controller
 public class CadastrarAgendamento {
 
-	@RequestMapping(value = "/cad", method = RequestMethod.POST)
+	@RequestMapping(value = "/cadastrarAgendamento", method = RequestMethod.POST)
 	public ResponseEntity<Agendamento> cadastrar(@RequestBody Agendamento agendamento){
 		Agendamentos.getInstance().add(agendamento);
 		try{
