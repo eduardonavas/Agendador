@@ -1,8 +1,6 @@
 package br.com.cvc.testes;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,7 +16,6 @@ public class TesteOperacaoA {
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(1000));
-		ag.setDataAgendamento(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
 		ag.setDataTransferecia("2017-09-16");
 		
 		
@@ -26,6 +23,7 @@ public class TesteOperacaoA {
 		op.calcularTaxa();
 				
 		Assert.assertEquals(33, ag.getTaxa(),0);
+		Assert.assertEquals(1033, ag.getDebtoTotal().doubleValue(),0);
 	}
 	
 	@Test
@@ -34,7 +32,6 @@ public class TesteOperacaoA {
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(10));
-		ag.setDataAgendamento(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
 		ag.setDataTransferecia("2017-09-16");
 		
 		
@@ -42,5 +39,6 @@ public class TesteOperacaoA {
 		op.calcularTaxa();
 				
 		Assert.assertEquals(3.3, ag.getTaxa(),0);
+		Assert.assertEquals(13.3, ag.getDebtoTotal().doubleValue(),0);
 	}
 }
