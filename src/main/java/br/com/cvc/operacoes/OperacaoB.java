@@ -1,47 +1,43 @@
 package br.com.cvc.operacoes;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.interfaces.Operacao;
 import br.com.cvc.model.Agendamento;
 
-public class OperacaoA implements Operacao{
-	
-	private final String MESSAGE_EXCEPTION = "O valor de sua transacao foi identificada como operacao do tipo A mas para a operacao ser concluida a transferencia tem que ser no mesmo dia da solicitacao.";
-	private final float VALOR_COBRANCA = 3;
-	private final float PORCENTAGEM = 0.03F;
-	private final int ARREDEONDAMENTO = 2;
-	private final int RETORNO_VALIDO = 0;
+
+public class OperacaoB implements Operacao {
+
+	private final int VALOR_TAXA = 12;
+	private final String MESSAGE_EXCEPTION = "O valor de sua transacao foi identificada como operacao do tipo B mas para a operacao ser concluida a transferencia tem que ser ate 10 dias da data de agendamento.";
 	private Agendamento agendamento;
 	
-	public OperacaoA(Agendamento agendamento){
+	public OperacaoB(Agendamento agendamento){
 		this.agendamento = agendamento;
 	}
 		
 	private boolean agendamentoValidao(){
-		
-		
 		LocalDate agora = LocalDate.now();
 		LocalDate dataTransferencia = LocalDate.parse(agendamento.getDataTransferecia());
-		
-		return dataTransferencia.compareTo(agora) == RETORNO_VALIDO;
+		int dias = dataTransferencia.compareTo(agora);
+		return dias >= 0 && dias <= 10;
 		
 	}
 
 	@Override
 	public void calcularTaxa() throws ExceptionRegraDeNegocio {
-		
 		if(!agendamentoValidao()){
 			ExceptionRegraDeNegocio ern = new ExceptionRegraDeNegocio();
 			ern.setMessage(MESSAGE_EXCEPTION);
 			throw ern;
 		}
-		double taxa = new BigDecimal((agendamento.getValor().doubleValue()*PORCENTAGEM) + VALOR_COBRANCA).setScale(ARREDEONDAMENTO, RoundingMode.HALF_EVEN).doubleValue();
+		
+		double taxa = VALOR_TAXA;
 		
 		agendamento.setTaxa(taxa);
 		agendamento.setDebtoTotal(new BigDecimal(agendamento.getValor().doubleValue() + taxa));
 	}
+
 }

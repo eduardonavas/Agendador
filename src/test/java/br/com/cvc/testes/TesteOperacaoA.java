@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.model.Agendamento;
 import br.com.cvc.operacoes.OperacaoA;
 
@@ -40,5 +41,18 @@ public class TesteOperacaoA {
 				
 		Assert.assertEquals(3.3, ag.getTaxa(),0);
 		Assert.assertEquals(13.3, ag.getDebtoTotal().doubleValue(),0);
+	}
+	
+	@Test(expected=ExceptionRegraDeNegocio.class)
+	public void testeExcpection() throws Exception{
+		
+		Agendamento ag = new Agendamento();
+		
+		ag.setValor(new BigDecimal(10));
+		ag.setDataTransferecia("2017-09-17");
+		
+		
+		OperacaoA op = new OperacaoA(ag);
+		op.calcularTaxa();
 	}
 }
