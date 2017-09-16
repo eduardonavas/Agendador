@@ -18,7 +18,6 @@ public class CadastrarAgendamento {
 	public ResponseEntity<Agendamento> cadastrar(@RequestBody Agendamento agendamento){
 		Agendamentos.getInstance().add(agendamento);
 		try{
-			String teste = null;
 			return new ResponseEntity<>(HttpStatus.OK);
 		}catch (Exception e) {
 			// TODO: handle exception
