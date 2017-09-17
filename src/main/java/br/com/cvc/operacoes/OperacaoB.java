@@ -24,7 +24,7 @@ public class OperacaoB implements Operacao {
 		
 	private boolean agendamentoValidao(){
 		LocalDate dataAgendamento = LocalDate.parse(agendamento.getDataAgendamento());
-		LocalDate dataTransferencia = LocalDate.parse(agendamento.getDataTransferecia());
+		LocalDate dataTransferencia = LocalDate.parse(agendamento.getDataTransferencia());
 		long dias = ChronoUnit.DAYS.between(dataAgendamento , dataTransferencia);
 		
 		return dias >= DIAS_MINIMO && dias <= DIAS_MAX;

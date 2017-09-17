@@ -20,7 +20,7 @@ public class TesteOperacaoB {
 		ag.setValor(new BigDecimal(10));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferecia("2017-09-26");
+		ag.setDataTransferencia("2017-09-26");
 		
 		
 		OperacaoB op = new OperacaoB(ag);
@@ -37,7 +37,7 @@ public class TesteOperacaoB {
 		ag.setValor(new BigDecimal(1000));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferecia("2017-09-17");
+		ag.setDataTransferencia("2017-09-17");
 		
 		
 		OperacaoB op = new OperacaoB(ag);
@@ -55,7 +55,7 @@ public class TesteOperacaoB {
 		ag.setValor(new BigDecimal(1000));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferecia("2017-09-30");
+		ag.setDataTransferencia("2017-09-30");
 		
 		
 		OperacaoB op = new OperacaoB(ag);

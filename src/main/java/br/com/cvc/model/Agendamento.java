@@ -8,7 +8,7 @@ public class Agendamento {
 	private String contaDestino;
 	private BigDecimal valor;
 	private double taxa;
-	private String dataTransferecia;
+	private String dataTransferencia;
 	private String dataAgendamento;
 	private BigDecimal debtoTotal;
 	private char operacaoAplicada;
@@ -31,11 +31,11 @@ public class Agendamento {
 	public void setTaxa(double taxa) {
 		this.taxa = taxa;
 	}
-	public String getDataTransferecia() {
-		return dataTransferecia;
+	public String getDataTransferencia() {
+		return dataTransferencia;
 	}
-	public void setDataTransferecia(String dataTransferecia) {
-		this.dataTransferecia = dataTransferecia;
+	public void setDataTransferencia(String dataTransferencia) {
+		this.dataTransferencia = dataTransferencia;
 	}
 	public String getDataAgendamento() {
 		return dataAgendamento;
@@ -61,6 +61,7 @@ public class Agendamento {
 	public void setOperacaoAplicada(Character operacaoAplicada) {
 		this.operacaoAplicada = operacaoAplicada;
 	}
-	
-	
+	public void setOperacaoAplicada(char operacaoAplicada) {
+		this.operacaoAplicada = operacaoAplicada;
+	}
 }
