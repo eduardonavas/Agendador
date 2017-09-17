@@ -11,6 +11,7 @@ public class Agendamento {
 	private String dataTransferecia;
 	private String dataAgendamento;
 	private BigDecimal debtoTotal;
+	private char operacaoAplicada;
 	
 	public String getContaOrigem() {
 		return contaOrigem;
@@ -53,6 +54,12 @@ public class Agendamento {
 	}
 	public void setDebtoTotal(BigDecimal debtoTotal) {
 		this.debtoTotal = debtoTotal;
+	}
+	public Character getOperacaoAplicada() {
+		return operacaoAplicada;
+	}
+	public void setOperacaoAplicada(Character operacaoAplicada) {
+		this.operacaoAplicada = operacaoAplicada;
 	}
 	
 	

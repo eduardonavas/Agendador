@@ -15,6 +15,7 @@ public class OperacaoA implements Operacao{
 	private final float PORCENTAGEM = 0.03F;
 	private final int ARREDEONDAMENTO = 2;
 	private final int RETORNO_VALIDO = 0;
+	private final char NOME_OPERACAO = 'A';
 	private Agendamento agendamento;
 	
 	public OperacaoA(Agendamento agendamento){
@@ -39,9 +40,11 @@ public class OperacaoA implements Operacao{
 			ern.setMessage(MESSAGE_EXCEPTION);
 			throw ern;
 		}
+		
 		double taxa = new BigDecimal((agendamento.getValor().doubleValue()*PORCENTAGEM) + VALOR_COBRANCA).setScale(ARREDEONDAMENTO, RoundingMode.HALF_EVEN).doubleValue();
 		
 		agendamento.setTaxa(taxa);
+		agendamento.setOperacaoAplicada(NOME_OPERACAO);
 		agendamento.setDebtoTotal(new BigDecimal(agendamento.getValor().doubleValue() + taxa));
 	}
 }

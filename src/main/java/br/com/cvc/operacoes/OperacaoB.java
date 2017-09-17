@@ -12,6 +12,7 @@ public class OperacaoB implements Operacao {
 
 	private final int VALOR_TAXA = 12;
 	private final String MESSAGE_EXCEPTION = "O valor de sua transacao foi identificada como operacao do tipo B mas para a operacao ser concluida a transferencia tem que ser ate 10 dias da data de agendamento.";
+	private final char NOME_OPERACAO = 'B';
 	private Agendamento agendamento;
 	
 	public OperacaoB(Agendamento agendamento){
@@ -37,6 +38,7 @@ public class OperacaoB implements Operacao {
 		double taxa = VALOR_TAXA;
 		
 		agendamento.setTaxa(taxa);
+		agendamento.setOperacaoAplicada(NOME_OPERACAO);
 		agendamento.setDebtoTotal(new BigDecimal(agendamento.getValor().doubleValue() + taxa));
 	}
 
