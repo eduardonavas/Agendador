@@ -1,6 +1,7 @@
 package br.com.cvc.operacoes;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -16,6 +17,7 @@ public class OperacaoB implements Operacao {
 	private final char NOME_OPERACAO = 'B';
 	private final int DIAS_MINIMO = 0;
 	private final int DIAS_MAX = 10;
+	private final int ARREDEONDAMENTO = 2;
 	private Agendamento agendamento;
 	
 	public OperacaoB(Agendamento agendamento){
@@ -41,7 +43,7 @@ public class OperacaoB implements Operacao {
 		
 		double taxa = VALOR_TAXA;
 		
-		agendamento.setTaxa(new BigDecimal(taxa));
+		agendamento.setTaxa(new BigDecimal(taxa).setScale(ARREDEONDAMENTO, RoundingMode.HALF_EVEN));
 		agendamento.setOperacaoAplicada(NOME_OPERACAO);
 	}
 
