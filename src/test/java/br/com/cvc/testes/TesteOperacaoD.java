@@ -80,4 +80,19 @@ public class TesteOperacaoD {
 		op.operacaoD(ag);
 				
 	}
+	
+	@Test(expected=ExceptionRegraDeNegocio.class)
+	public void testeExceptonOperacaoD() throws ExceptionRegraDeNegocio{
+		
+		Agendamento ag = new Agendamento();
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		ag.setDataAgendamento(LocalDate.now().format(formatter));
+		ag.setDataTransferecia("2017-09-29");
+		ag.setValor(new BigDecimal(1000.40));
+		
+		OperacaoD op = new OperacaoD();
+		op.operacaoD(ag);
+				
+	}
 }
