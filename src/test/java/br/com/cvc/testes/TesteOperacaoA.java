@@ -1,6 +1,8 @@
 package br.com.cvc.testes;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,7 +19,9 @@ public class TesteOperacaoA {
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(1000));
-		ag.setDataTransferecia("2017-09-16");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		ag.setDataAgendamento(LocalDate.now().format(formatter));
+		ag.setDataTransferecia("2017-09-17");
 		
 		
 		OperacaoA op = new OperacaoA(ag);
@@ -33,7 +37,9 @@ public class TesteOperacaoA {
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(10));
-		ag.setDataTransferecia("2017-09-16");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		ag.setDataAgendamento(LocalDate.now().format(formatter));
+		ag.setDataTransferecia("2017-09-17");
 		
 		
 		OperacaoA op = new OperacaoA(ag);
@@ -49,7 +55,9 @@ public class TesteOperacaoA {
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(10));
-		ag.setDataTransferecia("2017-09-17");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		ag.setDataAgendamento(LocalDate.now().format(formatter));
+		ag.setDataTransferecia("2017-09-18");
 		
 		
 		OperacaoA op = new OperacaoA(ag);

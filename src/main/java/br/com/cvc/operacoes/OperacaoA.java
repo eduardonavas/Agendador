@@ -3,6 +3,7 @@ package br.com.cvc.operacoes;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.interfaces.Operacao;
@@ -24,11 +25,11 @@ public class OperacaoA implements Operacao{
 		
 	private boolean agendamentoValidao(){
 		
-		
-		LocalDate agora = LocalDate.now();
+		LocalDate dataAgendamento = LocalDate.parse(agendamento.getDataAgendamento());
 		LocalDate dataTransferencia = LocalDate.parse(agendamento.getDataTransferecia());
+		long dias = ChronoUnit.DAYS.between(dataAgendamento , dataTransferencia);
 		
-		return dataTransferencia.compareTo(agora) == RETORNO_VALIDO;
+		return dias == RETORNO_VALIDO;
 		
 	}
 
