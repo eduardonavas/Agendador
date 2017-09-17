@@ -2,6 +2,7 @@ package br.com.cvc.operacoes;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.interfaces.Operacao;
@@ -13,6 +14,8 @@ public class OperacaoB implements Operacao {
 	private final int VALOR_TAXA = 12;
 	private final String MESSAGE_EXCEPTION = "O valor de sua transacao foi identificada como operacao do tipo B mas para a operacao ser concluida a transferencia tem que ser ate 10 dias da data de agendamento.";
 	private final char NOME_OPERACAO = 'B';
+	private final int DIAS_MINIMO = 0;
+	private final int DIAS_MAX = 10;
 	private Agendamento agendamento;
 	
 	public OperacaoB(Agendamento agendamento){
@@ -20,10 +23,11 @@ public class OperacaoB implements Operacao {
 	}
 		
 	private boolean agendamentoValidao(){
-		LocalDate agora = LocalDate.now();
+		LocalDate dataAgendamento = LocalDate.parse(agendamento.getDataAgendamento());
 		LocalDate dataTransferencia = LocalDate.parse(agendamento.getDataTransferecia());
-		int dias = dataTransferencia.compareTo(agora);
-		return dias >= 0 && dias <= 10;
+		long dias = ChronoUnit.DAYS.between(dataAgendamento , dataTransferencia);
+		
+		return dias >= DIAS_MINIMO && dias <= DIAS_MAX;
 		
 	}
 

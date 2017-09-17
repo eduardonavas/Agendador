@@ -1,8 +1,8 @@
 package br.com.cvc.testes;
 
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import org.junit.Assert;
 import org.junit.Test;
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
@@ -13,12 +13,13 @@ public class TesteOperacaoB {
 
 	
 	@Test
-	public void teste() throws Exception{
+	public void testeAgendamentoAte10Dias() throws Exception{
 		
-Agendamento ag = new Agendamento();
+		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(10));
-		ag.setDataAgendamento(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		ag.setDataAgendamento(LocalDate.now().format(formatter));
 		ag.setDataTransferecia("2017-09-26");
 		
 		
@@ -30,12 +31,13 @@ Agendamento ag = new Agendamento();
 	}
 	
 	@Test
-	public void teste2() throws Exception{
+	public void testeAgendamentoMesmoDia() throws Exception{
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(1000));
-		ag.setDataAgendamento(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
-		ag.setDataTransferecia("2017-09-16");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		ag.setDataAgendamento(LocalDate.now().format(formatter));
+		ag.setDataTransferecia("2017-09-17");
 		
 		
 		OperacaoB op = new OperacaoB(ag);
@@ -46,12 +48,13 @@ Agendamento ag = new Agendamento();
 	}
 	
 	@Test(expected = ExceptionRegraDeNegocio.class)
-	public void testeException() throws Exception{
+	public void testeAcima10Dias() throws Exception{
 		
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(1000));
-		ag.setDataAgendamento(new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		ag.setDataAgendamento(LocalDate.now().format(formatter));
 		ag.setDataTransferecia("2017-09-30");
 		
 		
