@@ -41,9 +41,8 @@ public class OperacaoB implements Operacao {
 		
 		double taxa = VALOR_TAXA;
 		
-		agendamento.setTaxa(taxa);
+		agendamento.setTaxa(new BigDecimal(taxa));
 		agendamento.setOperacaoAplicada(NOME_OPERACAO);
-		agendamento.setDebtoTotal(new BigDecimal(agendamento.getValor().doubleValue() + taxa));
 	}
 
 }

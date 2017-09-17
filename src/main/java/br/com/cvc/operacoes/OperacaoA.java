@@ -44,8 +44,8 @@ public class OperacaoA implements Operacao{
 		
 		double taxa = new BigDecimal((agendamento.getValor().doubleValue()*PORCENTAGEM) + VALOR_COBRANCA).setScale(ARREDEONDAMENTO, RoundingMode.HALF_EVEN).doubleValue();
 		
-		agendamento.setTaxa(taxa);
+		agendamento.setTaxa(new BigDecimal(taxa));
 		agendamento.setOperacaoAplicada(NOME_OPERACAO);
-		agendamento.setDebtoTotal(new BigDecimal(agendamento.getValor().doubleValue() + taxa));
+		
 	}
 }

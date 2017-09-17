@@ -7,7 +7,7 @@ public class Agendamento {
 	private String contaOrigem;
 	private String contaDestino;
 	private BigDecimal valor;
-	private double taxa;
+	private BigDecimal taxa;
 	private String dataTransferencia;
 	private String dataAgendamento;
 	private BigDecimal debtoTotal;
@@ -25,10 +25,10 @@ public class Agendamento {
 	public void setContaDestino(String contaDestino) {
 		this.contaDestino = contaDestino;
 	}
-	public double getTaxa() {
+	public BigDecimal getTaxa() {
 		return taxa;
 	}
-	public void setTaxa(double taxa) {
+	public void setTaxa(BigDecimal taxa) {
 		this.taxa = taxa;
 	}
 	public String getDataTransferencia() {

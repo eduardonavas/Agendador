@@ -26,7 +26,7 @@ public class TesteOperacaoB {
 		OperacaoB op = new OperacaoB(ag);
 		op.calcularTaxa();
 				
-		Assert.assertEquals(12, ag.getTaxa(),0);
+		Assert.assertEquals(12, ag.getTaxa().doubleValue(),0);
 		Assert.assertEquals(22, ag.getDebtoTotal().doubleValue(),0);
 	}
 	
@@ -43,7 +43,7 @@ public class TesteOperacaoB {
 		OperacaoB op = new OperacaoB(ag);
 		op.calcularTaxa();
 				
-		Assert.assertEquals(12, ag.getTaxa(),0);
+		Assert.assertEquals(12, ag.getTaxa().doubleValue(),0);
 		Assert.assertEquals(1012, ag.getDebtoTotal().doubleValue(),0);
 	}
 	
