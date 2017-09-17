@@ -14,7 +14,7 @@ import br.com.cvc.operacoes.OperacaoA;
 public class TesteOperacaoA {
 
 	@Test
-	public void teste() throws Exception{
+	public void testeAgendamentoParaMesmoDia() throws Exception{
 		
 		Agendamento ag = new Agendamento();
 		
@@ -31,33 +31,15 @@ public class TesteOperacaoA {
 		Assert.assertEquals(1033, ag.getDebtoTotal().doubleValue(),0);
 	}
 	
-	@Test
-	public void teste2() throws Exception{
-		
-		Agendamento ag = new Agendamento();
-		
-		ag.setValor(new BigDecimal(10));
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferecia("2017-09-17");
-		
-		
-		OperacaoA op = new OperacaoA(ag);
-		op.calcularTaxa();
-				
-		Assert.assertEquals(3.3, ag.getTaxa(),0);
-		Assert.assertEquals(13.3, ag.getDebtoTotal().doubleValue(),0);
-	}
-	
 	@Test(expected=ExceptionRegraDeNegocio.class)
-	public void testeExcpection() throws Exception{
+	public void testeAgendamentoAcimade1Dia() throws Exception{
 		
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(10));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferecia("2017-09-18");
+		ag.setDataTransferecia("2017-09-20");
 		
 		
 		OperacaoA op = new OperacaoA(ag);
