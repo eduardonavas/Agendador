@@ -27,7 +27,6 @@ public class TesteOperacaoB {
 		op.calcularTaxa();
 				
 		Assert.assertEquals(12, ag.getTaxa().doubleValue(),0);
-		Assert.assertEquals(22, ag.getDebtoTotal().doubleValue(),0);
 	}
 	
 	@Test
@@ -44,7 +43,7 @@ public class TesteOperacaoB {
 		op.calcularTaxa();
 				
 		Assert.assertEquals(12, ag.getTaxa().doubleValue(),0);
-		Assert.assertEquals(1012, ag.getDebtoTotal().doubleValue(),0);
+		
 	}
 	
 	@Test(expected = ExceptionRegraDeNegocio.class)
