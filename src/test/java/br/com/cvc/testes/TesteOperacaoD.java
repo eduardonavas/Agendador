@@ -27,7 +27,7 @@ public class TesteOperacaoD {
 		OperacaoD op = new OperacaoD();
 		op.operacaoD(ag);
 				
-		Assert.assertEquals(3.3, ag.getTaxa(),0);
+		Assert.assertEquals(3.3, ag.getTaxa().doubleValue(),0);
 		Assert.assertEquals(13.3, ag.getDebtoTotal().doubleValue(),0);
 		Assert.assertEquals('A', ag.getOperacaoAplicada(),0);
 	}
@@ -61,7 +61,7 @@ public class TesteOperacaoD {
 		OperacaoD op = new OperacaoD();
 		op.operacaoD(ag);
 				
-		Assert.assertEquals(12, ag.getTaxa(),0);
+		Assert.assertEquals(12, ag.getTaxa().doubleValue(),0);
 		Assert.assertEquals(1013, ag.getDebtoTotal().doubleValue(),0);
 		Assert.assertEquals('B', ag.getOperacaoAplicada(),0);
 	}
@@ -109,7 +109,7 @@ public class TesteOperacaoD {
 		OperacaoD op = new OperacaoD();
 		op.operacaoD(ag);
 				
-		Assert.assertEquals(164.08, ag.getTaxa(),0);
+		Assert.assertEquals(164.08, ag.getTaxa().doubleValue(),0);
 		Assert.assertEquals(2165.08, ag.getDebtoTotal().doubleValue(),0);
 		Assert.assertEquals('C', ag.getOperacaoAplicada(),0);
 	}
@@ -127,7 +127,7 @@ public class TesteOperacaoD {
 		OperacaoD op = new OperacaoD();
 		op.operacaoD(ag);
 				
-		Assert.assertEquals(207, ag.getTaxa(),0);
+		Assert.assertEquals(207, ag.getTaxa().doubleValue(),0);
 		Assert.assertEquals(3207, ag.getDebtoTotal().doubleValue(),0);
 		Assert.assertEquals('C', ag.getOperacaoAplicada(),0);
 	}
@@ -145,7 +145,7 @@ public class TesteOperacaoD {
 		OperacaoD op = new OperacaoD();
 		op.operacaoD(ag);
 				
-		Assert.assertEquals(141, ag.getTaxa(),0);
+		Assert.assertEquals(141, ag.getTaxa().doubleValue(),0);
 		Assert.assertEquals(3141, ag.getDebtoTotal().doubleValue(),0);
 		Assert.assertEquals('C', ag.getOperacaoAplicada(),0);
 	}
@@ -163,7 +163,7 @@ public class TesteOperacaoD {
 		OperacaoD op = new OperacaoD();
 		op.operacaoD(ag);
 				
-		Assert.assertEquals(51, ag.getTaxa(),0);
+		Assert.assertEquals(51, ag.getTaxa().doubleValue(),0);
 		Assert.assertEquals(3051, ag.getDebtoTotal().doubleValue(),0);
 		Assert.assertEquals('C', ag.getOperacaoAplicada(),0);
 	}
