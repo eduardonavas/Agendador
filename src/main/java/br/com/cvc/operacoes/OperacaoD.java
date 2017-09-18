@@ -3,7 +3,7 @@ package br.com.cvc.operacoes;
 import java.math.RoundingMode;
 
 
-import br.com.cvc.controller.Operarcoes;
+import br.com.cvc.controller.Operacoes;
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.model.Agendamento;
 
@@ -19,21 +19,21 @@ public class OperacaoD {
 	public void operacaoD(Agendamento agendamento) throws ExceptionRegraDeNegocio{
 		
 		double valorTransacao = agendamento.getValor().doubleValue();
-		Operarcoes operacoes = null;
+		Operacoes operacoes = null;
 		
 		//Verifica se valor é para a taxação do tipo A
 		if(valorTransacao > ZERO && valorTransacao <= VALOR_OPERACA_A_MAX){
-			operacoes = new Operarcoes(new OperacaoA(agendamento));
+			operacoes = new Operacoes(new OperacaoA(agendamento));
 			operacoes.executaOperacao();
 		}
 		//Verifica se valor é para a taxação do tipo B
 		else if(valorTransacao >= VALOR_OPERACAO_B_MIN && valorTransacao <= VALOR_OPERACAO_B_MAX){
-			operacoes = new Operarcoes(new OperacaoB(agendamento));
+			operacoes = new Operacoes(new OperacaoB(agendamento));
 			operacoes.executaOperacao();
 		}
 		//Verifica se valor é para a taxação do tipo C
 		else if(valorTransacao > VALOR_OPERACAO_B_MAX){
-			operacoes = new Operarcoes(new OperacaoC(agendamento));
+			operacoes = new Operacoes(new OperacaoC(agendamento));
 			operacoes.executaOperacao();
 		}
 		else{
