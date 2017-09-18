@@ -1,13 +1,13 @@
-package br.com.cvc.operacoes;
+package br.com.cvc.verificacoes;
 
 
 import br.com.cvc.interfaces.OperacaoC;
 
-public class OperacaoC30Dias implements OperacaoC {
+public class OperacaoC20Dias implements OperacaoC {
 
-	private final int MINIMO = 30;
-	private final int MAX = 40;
-	private float taxaPorcentagem = (float) 4.7;
+	private final int MINIMO = 20;
+	private final int MAX = 30;
+	private float taxaPorcentagem = (float) 6.9;
 	
 	public float getTaxa() {
 		return taxaPorcentagem / 100;

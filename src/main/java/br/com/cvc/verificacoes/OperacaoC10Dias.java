@@ -1,4 +1,4 @@
-package br.com.cvc.operacoes;
+package br.com.cvc.verificacoes;
 
 import br.com.cvc.interfaces.OperacaoC;
 

@@ -11,6 +11,10 @@ import br.com.cvc.controller.OperaracoesC;
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.interfaces.Operacao;
 import br.com.cvc.model.Agendamento;
+import br.com.cvc.verificacoes.OperacaoC10Dias;
+import br.com.cvc.verificacoes.OperacaoC20Dias;
+import br.com.cvc.verificacoes.OperacaoC30Dias;
+import br.com.cvc.verificacoes.OperacaoC40Dias;
 
 
 public class OperacaoC implements Operacao {
