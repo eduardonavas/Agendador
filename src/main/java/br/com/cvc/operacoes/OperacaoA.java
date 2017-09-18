@@ -11,7 +11,7 @@ import br.com.cvc.model.Agendamento;
 
 public class OperacaoA implements Operacao{
 	
-	private final String MESSAGE_EXCEPTION = "O valor de sua transacao foi identificada como operacao do tipo A mas para a operacao ser concluida a transferencia tem que ser no mesmo dia da solicitacao.";
+	private final String MESSAGE_EXCEPTION = "ERRO: Agendamentos com valores de ate 1000 so sao permitidos quando a data do agendamento for a mesma da data de solicitacao";
 	private final float VALOR_COBRANCA = 3;
 	private final float PORCENTAGEM = 0.03F;
 	private final int ARREDEONDAMENTO = 2;

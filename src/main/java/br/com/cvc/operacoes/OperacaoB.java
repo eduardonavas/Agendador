@@ -13,7 +13,7 @@ import br.com.cvc.model.Agendamento;
 public class OperacaoB implements Operacao {
 
 	private final int VALOR_TAXA = 12;
-	private final String MESSAGE_EXCEPTION = "O valor de sua transacao foi identificada como operacao do tipo B mas para a operacao ser concluida a transferencia tem que ser ate 10 dias da data de agendamento.";
+	private final String MESSAGE_EXCEPTION = "ERRO: Agendamentos com valores entre 1001 e 2000 so sao permitidos quando a data de agendamento for de ate 10 dias da data de solicitacao";
 	private final char NOME_OPERACAO = 'B';
 	private final int DIAS_MINIMO = 0;
 	private final int DIAS_MAX = 10;

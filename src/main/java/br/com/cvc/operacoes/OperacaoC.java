@@ -20,7 +20,7 @@ import br.com.cvc.verificacoes.OperacaoC40Dias;
 public class OperacaoC implements Operacao {
 
 	
-	private final String MESSAGE_EXCEPTION = "O valor de sua transacao foi identificada como operacao do tipo C mas para a operacao ser concluida a transferencia tem que ser acima de 10 dias da data de agendamento.";
+	private final String MESSAGE_EXCEPTION = "ERRO: Agendamentos com valores acima de 2000 so sao permitidos quando a data do agendamento for superior a 10 dias da data de solicitacao";
 	private final char NOME_OPERACAO = 'C';
 	private final int ARREDEONDAMENTO = 2;
 	private double taxa;
