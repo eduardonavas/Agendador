@@ -15,12 +15,14 @@ public class TesteOperacaoB {
 	@Test
 	public void testeAgendamentoAte10Dias() throws Exception{
 		
+		int dias = 10;
+		
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(10));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferencia("2017-09-26");
+		ag.setDataTransferencia(LocalDate.now().plusDays(dias).format(formatter));
 		
 		
 		OperacaoB op = new OperacaoB(ag);
@@ -36,7 +38,7 @@ public class TesteOperacaoB {
 		ag.setValor(new BigDecimal(1000));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferencia("2017-09-17");
+		ag.setDataTransferencia(LocalDate.now().format(formatter));
 		
 		
 		OperacaoB op = new OperacaoB(ag);
@@ -49,12 +51,14 @@ public class TesteOperacaoB {
 	@Test(expected = ExceptionRegraDeNegocio.class)
 	public void testeAcima10Dias() throws Exception{
 		
+		int dias = 12;
+		
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(1000));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferencia("2017-09-30");
+		ag.setDataTransferencia(LocalDate.now().plusDays(dias).format(formatter));
 		
 		
 		OperacaoB op = new OperacaoB(ag);

@@ -16,12 +16,14 @@ public class TesteOperacaoC {
 	@Test
 	public void testeAcima10dias() throws Exception{
 		
+		int dias = 11;
+		
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(1000));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferencia("2017-09-28");
+		ag.setDataTransferencia(LocalDate.now().plusDays(dias).format(formatter));
 		
 		
 		OperacaoC op = new OperacaoC(ag);
@@ -33,12 +35,14 @@ public class TesteOperacaoC {
 	@Test
 	public void testeAcima20dias() throws Exception{
 		
+		int dias = 25;
+		
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(1000));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferencia("2017-10-08");
+		ag.setDataTransferencia(LocalDate.now().plusDays(dias).format(formatter));
 		
 		
 		OperacaoC op = new OperacaoC(ag);
@@ -50,12 +54,14 @@ public class TesteOperacaoC {
 	@Test
 	public void testeAcima30dias() throws Exception{
 		
+		int dias = 36;
+		
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(1000));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferencia("2017-10-18");
+		ag.setDataTransferencia(LocalDate.now().plusDays(dias).format(formatter));
 		
 		
 		OperacaoC op = new OperacaoC(ag);
@@ -67,12 +73,14 @@ public class TesteOperacaoC {
 	@Test
 	public void testeAcima40dias() throws Exception{
 		
+		int dias = 60;
+		
 		Agendamento ag = new Agendamento();
 		
 		ag.setValor(new BigDecimal(1000));
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		ag.setDataAgendamento(LocalDate.now().format(formatter));
-		ag.setDataTransferencia("2017-11-11");
+		ag.setDataTransferencia(LocalDate.now().plusDays(dias).format(formatter));
 		
 		
 		OperacaoC op = new OperacaoC(ag);
