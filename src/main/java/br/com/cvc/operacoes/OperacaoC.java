@@ -6,8 +6,6 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
-
-import br.com.cvc.controller.OperaracoesC;
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.interfaces.Operacao;
 import br.com.cvc.model.Agendamento;

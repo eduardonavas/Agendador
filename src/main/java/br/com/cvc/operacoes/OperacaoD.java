@@ -2,8 +2,6 @@ package br.com.cvc.operacoes;
 
 import java.math.RoundingMode;
 
-
-import br.com.cvc.controller.Operacoes;
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.model.Agendamento;
 

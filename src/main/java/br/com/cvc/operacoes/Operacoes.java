@@ -1,4 +1,4 @@
-package br.com.cvc.controller;
+package br.com.cvc.operacoes;
 
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.interfaces.Operacao;
