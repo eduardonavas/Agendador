@@ -13,7 +13,7 @@ public class OperacaoA implements Operacao{
 	
 	private final String MESSAGE_EXCEPTION = "ERRO: Agendamentos com valores de ate 1000 so sao permitidos quando a data do agendamento for a mesma da data de solicitacao";
 	private final float VALOR_COBRANCA = 3;
-	private final float PORCENTAGEM = 0.03F;
+	private final float PORCENTAGEM = (float) 0.03;
 	private final int ARREDEONDAMENTO = 2;
 	private final int RETORNO_VALIDO = 0;
 	private final char NOME_OPERACAO = 'A';
