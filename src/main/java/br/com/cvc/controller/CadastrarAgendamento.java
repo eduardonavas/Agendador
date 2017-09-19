@@ -9,10 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.cvc.db.Agendamentos;
 import br.com.cvc.exceptions.ExceptionRegraDeNegocio;
 import br.com.cvc.model.Agendamento;
+import br.com.cvc.model.Response;
 import br.com.cvc.operacoes.OperacaoD;
 
 
@@ -20,11 +22,11 @@ import br.com.cvc.operacoes.OperacaoD;
 public class CadastrarAgendamento {
 
 	private final String DATE_PATTERN = "yyyy-MM-dd";
-	
+	private final String RESPONSE_MESSAGE = "Agendamento cadastrado com sucesso." ;
 	
 	@RequestMapping(value = "/cadastrarAgendamento", method = RequestMethod.POST)
-	public ResponseEntity<Agendamento> cadastrar(@RequestBody Agendamento agendamento) throws ExceptionRegraDeNegocio{
-		
+	@ResponseBody
+	public ResponseEntity<Response> cadastrar(@RequestBody Agendamento agendamento) throws ExceptionRegraDeNegocio {
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_PATTERN);
 		agendamento.setDataAgendamento(LocalDate.now().format(formatter));
@@ -33,9 +35,11 @@ public class CadastrarAgendamento {
 		
 		Agendamentos.getInstance().add(agendamento);
 		
+		Response response = new Response();
 		
-		return new ResponseEntity<>(HttpStatus.OK);
+		response.setMessage(RESPONSE_MESSAGE);
+		response.setCode(HttpStatus.OK.value());
 		
-		
+		return new ResponseEntity<Response>(response, HttpStatus.OK);		
 	}
 }
